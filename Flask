@@ -1,0 +1,2 @@
+# 1. Import Flask
+from flask import Flask

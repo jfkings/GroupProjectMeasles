@@ -1,0 +1,48 @@
+<title>Measles Project: Deaths</title>
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+<script src="/static/d3.min.js"></script>
+<script src="/static/plotly-latest.min.js"></script>
+<script src="/static/underscore-min.js"></script>
+<script src="/static/plot.js"></script>
+<style>
+#controls {
+	margin-bottom: 8px;
+}
+label {
+	font-size: 80%;
+}
+select {
+	font-size: 105%;
+	margin-right: 10px;
+}
+p, li {
+    max-width: 8in;
+}
+</style>
+
+<h1>Deaths</h1>
+
+<p>Measles is a highly contagious killer of young children globally,
+	despite a safe and effective vaccine being available. Around 90,000 people
+	die because of measles every year, the huge majority of whom (87%) are children
+	younger than 5. Measles vaccination has resulted in an 84% drop in measles
+	deaths between 2000-2016.</p>
+
+<p>This chart shows the number of deaths caused by Measles for countries around the world</p>
+
+<div id="controls">
+	<label for="sortby">Sort:</label>
+	<select id="sortby" onchange="plotDeaths(this.value)">
+		<option value="alpha">Alphabetically</option>
+		<option value="ascend">Deaths Low to High</option>
+		<option value="descend">Deaths High to Low</option>
+	</select>
+</div>
+
+<div id="deaths"></div>
+
+<script>
+load_deaths(function() {
+	plotDeaths();
+});
+</script>

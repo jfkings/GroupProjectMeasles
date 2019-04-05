@@ -1,0 +1,49 @@
+<title>Measles Project: Coverage</title>
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+<script src="/static/d3.min.js"></script>
+<script src="/static/plotly-latest.min.js"></script>
+<script src="/static/underscore-min.js"></script>
+<script src="/static/plot.js"></script>
+<style>
+#controls {
+	margin-bottom: 8px;
+}
+label {
+	font-size: 80%;
+}
+select {
+	font-size: 105%;
+	margin-right: 10px;
+}
+</style>
+
+<h1>Coverage</h1>
+
+<p> In 2017, an estimated  19.9 million infants worldwide were not reached with routine immunization
+	services such as 3 doses of DTP vaccine. Around 60% of these children live in 10 countries: 
+	Afghanistan, Angola, the Democratic Republic of the Congo, Ethiopia, India, Indonesia, Iraq, 
+	Nigeria, Pakistan and South Africa.
+	- Source: World Health Orginization </p>
+
+<p>This chart shows the amount of different country's populations who were covered for measles in 2015</p>
+
+<div id="controls">
+	<label for="sortby">Sort:</label>
+	<select id="sortby" onchange="plotCoverage(this.value)">
+		<option value="alpha">Alphabetically</option>
+		<option value="ascend">Vaccine Percent Low to High</option>
+		<option value="descend">Vaccine Percent High to Low</option>
+	</select>
+</div>
+
+<div id="coverage"></div>
+
+<script>
+	load_coverage(function() {
+		plotCoverage();
+	});
+
+</script>
+
+
+

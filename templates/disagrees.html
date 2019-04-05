@@ -1,0 +1,52 @@
+<title>Measles Project: Disagreement</title>
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+<script src="/static/d3.min.js"></script>
+<script src="/static/plotly-latest.min.js"></script>
+<script src="/static/underscore-min.js"></script>
+<script src="/static/plot.js"></script>
+<style>
+#controls {
+	margin-bottom: 8px;
+}
+label {
+	font-size: 80%;
+}
+select {
+	font-size: 105%;
+	margin-right: 10px;
+}
+p, li {
+    max-width: 8in;
+}
+</style>
+
+<h1>Disagreement</h1>
+
+<p>Before the widespread use of the vaccine, measles was so common that infection was considered "as inevitable as death and taxes."
+	In the United States, reported cases of measles fell from hundreds of thousands to tens of thousands per year following introduction of 
+	the vaccine in 1963 (see chart at right). Increasing uptake of the vaccine following outbreaks in 1971 and 1977 brought this down to 
+	thousands of cases per year in the 1980s. An outbreak of almost 30,000 cases in 1990 led to a renewed push for vaccination and the 
+	addition of a second vaccine to the recommended schedule. No more than 220 cases were reported in any year from 1997 to 2013, and 
+	the disease was believed no longer endemic in the United States. In 2014, 667 cases were reported.
+	- Source - Wikpedia
+</p>
+
+<p>This chart shows the percent of populations of countries throughout the world who disagree that vaccines are safe.</p>
+
+<div id="controls">
+	<label for="sortby">Sort:</label>
+	<select id="sortby" onchange="plotDisagrees(this.value)">
+		<option value="alpha">Alphabetically</option>
+		<option value="ascend">Disagrees Low to High</option>
+		<option value="descend">Disagrees High to Low</option>
+	</select>
+	
+</div>
+
+<div id="disagrees"></div>
+
+<script>
+load_disagrees(function() {
+	plotDisagrees();
+});
+</script>
